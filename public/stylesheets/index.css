@@ -1,0 +1,48 @@
+body {
+    overflow-x: hidden;
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    margin: 0 auto;
+    width: 90%;
+    height: calc(100vh - 66px);
+}
+
+#container #main_info {
+    background-color: #273c75;
+    color: #fff;
+    width: 60%;
+    padding: 150px 50px;
+    line-height: 30px;
+}
+
+#container #main_info h4 {
+    font-size: 40px;
+    line-height: 50px;
+}
+
+#container #main_info p {
+    font-size: 20px;
+}
+
+#container #main_logo {
+    width: 40%;
+    text-align: center;
+}
+
+#container #main_logo img {
+    width: 300px;
+    height: auto;
+}
+
+#utils {
+    width: 90%;
+    background-color: #273c75;
+    height: 500px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+}
