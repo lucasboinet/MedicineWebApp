@@ -1,0 +1,19 @@
+#table_container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+table button {
+    font-size: 10px !important;
+}
+
+thead {
+    background-color: #dae1e7 !important;
+}
+
+@media screen and (max-width: 768px) {
+    #table_container {
+        width: 100%;
+    }
+  }
+  

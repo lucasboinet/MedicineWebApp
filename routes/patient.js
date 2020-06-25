@@ -12,10 +12,9 @@ var connection = mysql.createConnection({
 connection.connect()
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  /*connection.query('SELECT * FROM products', function (err, rows, fields) {
-    if (err) throw err
-  });*/
-  res.render('list')
+  connection.query('SELECT * FROM patient', function (err, rows, fields) {
+    res.render('list', {patients: rows});
+  });
 });
 
 router.get('/:id', function(req, res, next) {

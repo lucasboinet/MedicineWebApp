@@ -1,48 +1,113 @@
-body {
-    overflow-x: hidden;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
 }
 
-#container {
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    align-items: center;
-    margin: 0 auto;
-    width: 90%;
-    height: calc(100vh - 66px);
+section {
+    width: 100%;
 }
 
-#container #main_info {
-    background-color: #273c75;
-    color: #fff;
-    width: 60%;
-    padding: 150px 50px;
-    line-height: 30px;
+#landing {
+    height: 95vh;
+    background: url(../images/landing.jpg) no-repeat 50% 50%;
+    position: relative;
+    background-size: cover;
 }
 
-#container #main_info h4 {
-    font-size: 40px;
-    line-height: 50px;
+#landing #overlay {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(25,42,86,0.9999);
+    opacity: 0.95;
 }
 
-#container #main_info p {
-    font-size: 20px;
+#landing header {
+  color: #fff;
+  width: 75%;
+  min-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 30px;
 }
 
-#container #main_logo {
-    width: 40%;
-    text-align: center;
+#landing header nav {
+  width: 100%;
 }
 
-#container #main_logo img {
-    width: 300px;
-    height: auto;
+#landing header nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
 }
 
-#utils {
-    width: 90%;
-    background-color: #273c75;
-    height: 500px;
-    margin: 0 auto;
-    margin-bottom: 50px;
+#landing header h1 {
+  font-size: 20px;
+}
+
+#landing header nav ul li {
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+#landing header nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  padding: 20px 12px;
+  letter-spacing: 2px;
+}
+
+#landing #overlay div {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#landing #overlay div h1 {
+  font-family: 'Raleway', sans-serif;
+  color: #fff;
+  line-height: 1.3;
+  font-size: 60px;
+  font-weight: 300;
+  letter-spacing: 5px;
+  margin: 0 0 20px 0;
+}
+
+#landing #overlay div p {
+  font-family: 'Raleway', sans-serif;
+  color: #fff;
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+
+#landing #overlay div a {
+  background-color: rgba(0,184,148,1);
+  color: #fff;
+  text-decoration: none;
+  padding: 18px 36px;
+  margin: 0 4px 4px 0;
+  border-radius: 35px;
+}
+
+
+
+#overview {
+  position: relative;
+  top: -15vh;
+  z-index: -1;
+  background-color: #F5F5F5;
+  height: 100vh;
 }
