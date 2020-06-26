@@ -17,13 +17,13 @@ section {
     background: url(../images/landing.jpg) no-repeat 50% 50%;
     position: relative;
     background-size: cover;
+    z-index: 1;
 }
 
 #landing #overlay {
     width: 100%;
     height: 100%;
-    background-color: rgba(25,42,86,0.9999);
-    opacity: 0.95;
+    background-color: rgba(25,42,86,0.95);
 }
 
 #landing header {
@@ -102,12 +102,156 @@ section {
   border-radius: 35px;
 }
 
-
-
 #overview {
+  z-index: 0;
+  background-color: #F5F5F5;
+  height: 75vh;
+  border-bottom: 1px solid #c4c4c4;
+}
+
+#overview #carousel {
   position: relative;
   top: -15vh;
-  z-index: -1;
+  height: 100%;
+  width: 50%;
+  min-width: 900px;
+  margin: 0 auto;
+  height: 550px;
+}
+
+#overview #carousel .item {
+  min-width: 900px;
+  height: 550px;
+
+}
+
+#overview #carousel .item img {
+  width: 100%;
+  height: 100%;
+}
+
+#app_car {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 65vh;
+}
+
+#app_car #items_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+}
+
+#app_car #items_container .item {
+  text-align: center;
+  width: 300px;
+}
+
+#app_car .item i {
+  color: #3b58a3;
+  font-size: 80px;
+  margin-bottom: 30px;
+}
+
+#app_car .item h3 {
+  font-family: 'Raleway', sans-serif;
+  font-size: 26px;
+  margin-bottom: 20px;
+  display: block;
+  font-weight: bold;
+}
+
+#app_car .item p {
+  font-size: 16px;
+  display: block;
+  line-height: 2;
+  color: grey;
+  font-weight: 300;
+}
+
+#pricing {
+  border-top: 1px solid #c4c4c4;
+  width: 100%;
   background-color: #F5F5F5;
-  height: 100vh;
+}
+
+#pricing h1 {
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+  padding: 30px 0;
+  font-weight: 300;
+  font-size: 40px;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+}
+
+#pricing #prices_container {
+  width: 50%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 0 auto;
+  padding-bottom: 40px;
+}
+
+#pricing .price_item {
+  text-align: center;
+  background-color: #fff;
+  padding: 32px 20px 16px 20px;
+}
+
+.price_item h2 {
+  font-family: 'Raleway', sans-serif;
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+
+.price_item .number {
+  color: #3b58a3;
+  font-size: 70px;
+  position: relative;
+}
+
+.price_item .number::before {
+  content: "€";
+  position: absolute;
+  font-size: 30px;
+  top: 10px;
+  left: -25px;
+}
+
+.price_item .price .small {
+  color: grey;
+  font-size: 13px;
+  margin: 0 0 20px 0;
+  display: block;
+}
+
+.price_item p {
+  display: block;
+  width: 230px;
+  margin-bottom: 20px;
+  line-height: 2;
+  color: gray;
+  font-weight: 300;
+}
+
+.price_item a {
+  background-color: #3b58a3;
+  text-decoration: none;
+  color: #fff;
+  padding: 15px 25px;
+  border-radius: 30px;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+footer {
+  background-color: rgb(25,42,86);
+  width: 100%;
+  height: 150px;
 }
