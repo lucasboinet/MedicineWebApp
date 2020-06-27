@@ -53,7 +53,7 @@ router.post('/register', forwardAuthenticated, function(req, res, next){
         bcrypt.hash(password, salt, (err, hash) => {
           if (err) throw err;
           var hashedPassword = hash;
-          connection.query("INSERT INTO users VALUES ('null','"+nom+"','"+prenom+"','"+email+"','"+hashedPassword+"')", function(err, result){
+          connection.query("INSERT INTO users VALUES ('null','"+nom+"','"+prenom+"','"+email+"','"+hashedPassword+"',current_date,'free')", function(err, result){
             if (err) throw err;
             res.redirect('/login');
           })
@@ -74,8 +74,15 @@ router.post('/login', forwardAuthenticated, function(req, res, next){
   })(req, res, next);
 })
 
+router.get('/logout', function(req, res, next){
+  req.logout();
+  res.redirect('/');
+});
+
 router.get('/dashboard', ensureAuthenticated, function(req, res, next){
-  res.render('dashboard', {u: req.user});
+  connection.query("SELECT motif, updated_at, patient_id FROM suivi WHERE user_id='"+req.user.id+"'", function(err, rows, fields){
+    res.render('dashboard', {u: req.user, suivis: rows});
+  })
 })
 
 module.exports = router;
