@@ -3,12 +3,63 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MedicineWebApp - Sign in</title>
+  <title>MedicineWebApp - Dashboard</title>
   <script src="https://kit.fontawesome.com/ae7adf6d8c.js" crossorigin="anonymous"></script>
   <link rel="icon" type="image/ico" href="../images/favicon2.ico">
+  <link rel="stylesheet" href="../stylesheets/dashboard.css">
 </head>
 <body>
-  <h1>Dashboard</h1>
-  <p><%= u.nom %> <%= u.prenom %></p>
+  <header>
+    <div id="top_part">
+      <h3>MedicineWebApp</h3>
+      <ul>
+        <li><i class="far fa-bell"></i></li>
+        <li>
+          <p id="profile_symbole"><%= u.prenom[0] %></p>
+          <p id="user_text"><%= u.prenom %> <%= u.nom %> <i class="fas fa-sort-down"></i></p>
+        </li>
+      </ul>
+    </div>
+    <div id="bottom_part">
+      <ul>
+        <li class="tab_selector active">
+          <i class="far fa-user"></i>
+          <h4>Dashboard</h4>
+        </li>
+        <li class="tab_selector">
+          <i class="fas fa-stream"></i>
+          <h4>Patient list</h4>
+        </li>
+        <li class="tab_selector">
+          <i class="fas fa-receipt"></i>
+          <h4>Invoices</h4>
+        </li>
+      </ul>
+    </div>
+  </header>
+  <!-- TAB PART -->
+  <section class="tab active" id="dashboard_tab">
+    <h1>Overview</h1>
+    <div id="dash_container">
+      <div id="left_side">
+        <div id="subscription">
+
+        </div>
+        <div id="income_stat">
+
+        </div>
+      </div>
+      <div id="right_side">
+
+      </div>
+    </div>
+  </section>
+  <section class="tab" id="patient_tab">
+    <h1>Patients</h1>
+  </section>
+  <section class="tab" id="invoices_tab">
+    <h1>Invoices</h1>
+  </section>
+  <script src="./javascripts/dashboard.js"></script>
 </body>
 </html>

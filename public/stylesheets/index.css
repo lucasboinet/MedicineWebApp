@@ -8,6 +8,17 @@
     font-family: 'Montserrat', sans-serif;
 }
 
+body::-webkit-scrollbar {
+  width: 6px;
+}
+body::-webkit-scrollbar-track {
+  background: white;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: #b2bec3;
+  border-radius: 20px;
+}
+
 section {
     width: 100%;
 }
