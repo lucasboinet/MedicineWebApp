@@ -7,7 +7,7 @@ const passport = require('passport');
 const flash = require('connect-flash');
 const session = require('express-session');
 
-var indexRouter = require('./routes/index');
+var indexRouter = require('./routes/root');
 var patientRouter = require('./routes/patient');
 
 var app = express();

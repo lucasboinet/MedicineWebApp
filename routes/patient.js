@@ -1,12 +1,12 @@
 var express = require('express');
 var router = express.Router();
 var mysql = require('mysql');
-const { connect } = require('.');
+const { connect } = require('./root');
 var connection = mysql.createConnection({
-  host: 'mysql-tkl.alwaysdata.net',
-  user: 'tkl',
-  password: 'tklstore589',
-  database: 'tkl_medicine'
+  host: 'mysql-medicine.alwaysdata.net',
+  user: 'medicine',
+  password: 'Boinet1906!',
+  database: 'medicine_app'
 })
 
 connection.connect()

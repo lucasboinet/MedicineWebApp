@@ -3,10 +3,10 @@ const bcrypt = require('bcryptjs');
 var mysql = require('mysql');
 
 var connection = mysql.createConnection({
-  host: 'mysql-tkl.alwaysdata.net',
-  user: 'tkl',
-  password: 'tklstore589',
-  database: 'tkl_medicine'
+  host: 'mysql-medicine.alwaysdata.net',
+  user: 'medicine',
+  password: 'Boinet1906!',
+  database: 'medicine_app'
 })
 module.exports = function(passport) {
   connection.connect()
