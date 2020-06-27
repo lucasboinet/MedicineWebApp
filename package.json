@@ -16,6 +16,7 @@
     "express-session": "^1.17.1",
     "http-errors": "~1.6.3",
     "jquery": "^3.5.1",
+    "mysql": "^2.18.1",
     "owl.carousel": "^2.3.4",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0"
