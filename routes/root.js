@@ -11,7 +11,7 @@ var connection = mysql.createConnection({
   database: 'medicine_app'
 })
 
-const { ensureAuthenticated, forwardAuthenticated } = require('../config/auth.js');
+const { ensureAuthenticated, forwardAuthenticated, ensureAuthenticatedAndAdmin } = require('../config/auth.js');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -80,8 +80,22 @@ router.get('/logout', function(req, res, next){
 });
 
 router.get('/dashboard', ensureAuthenticated, function(req, res, next){
-  connection.query("SELECT motif, updated_at, patient_id FROM suivi WHERE user_id='"+req.user.id+"'", function(err, rows, fields){
-    res.render('dashboard', {u: req.user, suivis: rows});
+  connection.query("SELECT nom, prenom, motif, updated_at FROM suivi s, patient p WHERE p.id=s.patient_id AND user_id='"+req.user.id+"' ORDER BY updated_at DESC LIMIT 5", function(err, rows, fields){
+    connection.query("SELECT distinct p.* FROM patient p, suivi s WHERE p.id=s.patient_id AND s.user_id='"+req.user.id+"'", function(error, results, champs) {
+      res.render('dashboard', {u: req.user, suivis: rows, patients: results});
+    })
+  })
+})
+
+router.get('/api/suivi/income', ensureAuthenticatedAndAdmin, function(req, res, next) {
+  connection.query("SELECT montant, updated_at FROM suivi WHERE year(date) IN ("+new Date().getFullYear()+","+(new Date().getFullYear()-1)+")", function(err, rows, fields){
+    res.json(rows);
+  })
+})
+
+router.get('/api/patient/gender', ensureAuthenticatedAndAdmin, function(req, res, next) {
+  connection.query("SELECT sexe FROM patient WHERE id IN (SELECT patient_id FROM suivi WHERE user_id="+req.user.id+")", function(err, rows, fields) {
+    res.json(rows);
   })
 })
 

@@ -1,9 +1,0 @@
-- Access it from everywhere
--> <i class="fas fa-globe-europe"></i>
--> <i class="fas fa-globe"></i>
-
-- Create ur own way of organisation
--> <i class="fas fa-sitemap"></i>
-
-- Quite easy to use and understand
--> <i class="fas fa-sliders-h"></i>

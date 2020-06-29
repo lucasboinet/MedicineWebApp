@@ -11,5 +11,14 @@ module.exports = {
       return next();
     }
     res.redirect('/dashboard');
+  },
+  ensureAuthenticatedAndAdmin: function(req, res, next) {
+    if(req.isAuthenticated()){
+      if(req.user.plan == "vip"){
+        return next();
+      }
+      return res.redirect('/dashboard');
+    }
+    return res.redirect('/');
   }
 };

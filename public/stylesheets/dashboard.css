@@ -91,10 +91,10 @@ header {
 
 #user_menu {
   position: absolute;
-  bottom: -120px;
+  bottom: -65px;
   left: 50%;
   width: 130px;
-  height: 100px;
+  height: 50px;
   background-color: white;
   transform: translate(-50%, 0);
   box-shadow: 0px 0px 16px -9px #000000;
@@ -226,6 +226,7 @@ header {
   padding: 30px;
   position: relative;
   z-index: 2;
+  box-shadow: 0px 0px 16px -15px #000000;
 }
 
 #dashboard_tab #subscription svg {
@@ -276,28 +277,207 @@ header {
 }
 
 #dashboard_tab #right_side {
-  background-color: white;
   width: 30%;
-  box-shadow: 0px 0px 20px -12px #000000;
-  border-radius: 10px;
-  height: 670px;
+  height: 800px;
   margin-left: 20px;
 }
 
+#dashboard_tab #right_side #history {
+  height: 480px;
+  margin-bottom: 20px;
+  box-shadow: 0px 0px 16px -15px #000000;
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+#dashboard_tab #right_side #gender_chart {
+  height: 300px;
+  box-shadow: 0px 0px 16px -15px #000000;
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+#dashboard_tab #right_side #gender_chart #genderChart {
+  width: 100%;
+  height: 100%;
+}
+
 #dashboard_tab #right_side h3 {
-  color: black;
   font-family: 'Montserrat', sans-serif;
-  font-size: 18px;
-  letter-spacing: 2px;
-  border-bottom: 1px solid #c4c4c4;
+  font-size: 16px;
+  border-bottom: 3px solid #ececec;
+  width: 100%;
+  color: #7E7E7E;
+  padding: 25px 0 20px 20px;
+  margin-bottom: 10px;
+}
+
+#dashboard_tab .history_item {
+  display: flex;
+  padding: 15px;
+  align-items: center;
+  border-bottom: 1px solid rgba(202, 202, 202, 0.5);
   width: 90%;
-  margin: 0 auto;
-  padding: 20px 0;
+  margin: 0 auto 15px auto;
+}
+
+#dashboard_tab .history_item span {
+  background-color: #192A56;
+  color: #fff;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+}
+
+#dashboard_tab .history_item .history_info {
+  font-size: 18px;
+}
+
+#dashboard_tab .history_item .history_info p{
+  color:#bbbbbb;
+  font-size: 13px;
+}
+
+#dashboard_tab #right_side #no_available {
+  text-align: center;
+  margin-top: 50%;
+  color: #d1d1d1;
 }
 
 #dashboard_tab #left_side #income_stat {
   background-color: white;
-  height: 400px;
-  box-shadow: 0px 0px 20px -12px #000000;
+  height: 530px;
+  box-shadow: 0px 0px 16px -15px #000000;
   border-radius: 10px;
+}
+
+#dashboard_tab #income_stat h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  border-bottom: 3px solid #ececec;
+  width: 100%;
+  color: #7E7E7E;
+  padding: 25px 0 20px 20px;
+}
+
+#dashboard_tab #income_stat #incomeChart {
+  width: 100%;
+  height: 100%;
+  padding: 10px 10px 0 10px;
+}
+
+
+#patient_tab #patient_container {
+  margin: 0 auto;
+  width: 100%;
+}
+
+#patient_tab .patient_item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 30px;
+  box-shadow: 0px 0px 16px -15px #000000;
+  cursor: pointer;
+  transition: border-radius 0.2s ease-out;
+}
+
+#patient_tab .patient_item img {
+  margin-right: 20px;
+}
+
+#patient_tab .patient_item .patient_info p {
+  margin-top: 10px;
+}
+
+#patient_tab #patient_container .patient_details {
+  width: 100%;
+  background-color: #fff;
+  margin-bottom: 20px;
+  transition: height 0.2s ease-out;
+  height: 0;
+  overflow: hidden;
+  z-index: -1;
+}
+
+#patient_tab .details_container {
+  padding: 20px;
+}
+
+#patient_tab .details_container span {
+  padding: 10px;
+}
+
+#patient_tab .details_container .details_option {
+  padding: 0px 20px 20px;
+}
+
+#patient_tab .details_container .details_option a {
+  border: 1px solid #2d4a93;
+  color: #2d4a93;
+  text-decoration: none;
+  padding: 10px 15px;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+  border-radius: 5px;
+  margin-right: 15px;
+}
+
+#patient_tab .details_container .details_option a:last-child {
+  border: 2px solid rgb(238, 82, 83);
+  color: #fff;
+  background-color: rgb(238, 82, 83);
+}
+
+#patient_tab .details_container .details_option a:last-child:hover {
+  background-color: rgb(224, 51, 51);
+  border: 2px solid rgb(224, 51, 51);
+}
+
+#patient_tab #patient_container .patient_item.opened {
+  border-radius: 30px 30px 0 0;
+}
+
+#patient_tab #patient_container .patient_details.opened {
+  height: 80px;
+  border-radius: 0 0 30px 30px;
+}
+
+#stat_tab h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  border-bottom: 3px solid #ececec;
+  width: 100%;
+  color: #7E7E7E;
+  padding: 25px 0 20px 20px;
+  margin-bottom: 10px;
+}
+
+#stat_tab #stat_container .row {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+#stat_tab #stat_container .row .stat_item {
+  box-shadow: 0px 0px 16px -15px #000000;
+  background-color: #fff;
+  border-radius: 10px;
+  width: calc(50% - 10px);
+}
+
+#stat_tab #stat_container .row .stat_item:first-child {
+  margin-right: 20px;
+}
+
+#stat_tab #stat_container .row .stat_item canvas {
+  padding: 10px;
 }
