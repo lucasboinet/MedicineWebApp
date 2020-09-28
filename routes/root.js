@@ -1,3 +1,5 @@
+var registerFunctions = require('../functions/registerFunctions');
+
 var express = require('express');
 var router = express.Router();
 var bcrypt = require('bcryptjs');
@@ -23,7 +25,6 @@ router.get('/register', forwardAuthenticated, function(req, res, next){
 });
 
 router.post('/register', forwardAuthenticated, function(req, res, next){
-  connection.connect()
   const { nom, prenom, email, password, password2 } = req.body;
   let errors = [];
 
@@ -31,29 +32,33 @@ router.post('/register', forwardAuthenticated, function(req, res, next){
     errors.push({ msg: 'Please enter all fields' });
   }
 
-  if (password != password2) {
+  if (password !== password2) {
     errors.push({ msg: 'Passwords do not match' });
+  }
+console.log("before func");
+  if(registerFunctions.emailAlreadyTaken(email)){
+    console.log("after func");
+    errors.push({ msg: 'Email already registered' })
   }
 
   if (password.length < 6) {
     errors.push({ msg: 'Password must be at least 6 characters' });
   }
 
+  console.log("after after func");
+
   if (errors.length > 0) {
     res.render('register', {
       errors,
       nom,
       prenom,
-      email,
-      password,
-      password2
+      email
     });
   }else {
     bcrypt.genSalt(10, (err, salt) => {
         bcrypt.hash(password, salt, (err, hash) => {
           if (err) throw err;
-          var hashedPassword = hash;
-          connection.query("INSERT INTO users VALUES ('null','"+nom+"','"+prenom+"','"+email+"','"+hashedPassword+"',current_date,'free')", function(err, result){
+          connection.query("INSERT INTO users VALUES ('null','"+nom+"','"+prenom+"','"+email+"','"+hash +"',current_date,'free')", function(err, result){
             if (err) throw err;
             res.redirect('/login');
           })

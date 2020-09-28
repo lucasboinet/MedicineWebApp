@@ -29,7 +29,8 @@ form h1 {
   padding: 10px 0 20px 0;
 }
 
-form input[type="text"] {
+form input[type="text"],
+form input[type="password"] {
   margin: 15px 0;
   background-color: #F5F5F5;
   border: none;
@@ -38,7 +39,8 @@ form input[type="text"] {
   outline: none;
 }
 
-form input[type="text"]:focus {
+form input[type="text"]:focus,
+form input[type="password"]:focus{
   outline: 2px solid #3b58a3;
 }
 
@@ -52,4 +54,8 @@ form input[type="submit"] {
   cursor: pointer;
   font-size: 15px;
   width: 150px;
+}
+
+form p {
+  padding-top: 25px;
 }

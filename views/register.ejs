@@ -10,13 +10,19 @@
 </head>
 <body>
   <form method="post">
+    <% if(typeof errors != 'undefined') { %>
+      <% errors.forEach(function(error) {%>
+        <p><%= error.msg %></p>
+      <% }) %>
+    <% } %>
     <h1>Register</h1>
     <input type="text" name="nom" placeholder="Last name">
     <input type="text" name="prenom" placeholder="First name">
     <input type="text" name="email" placeholder="Email">
-    <input type="text" name="password" placeholder="Password">
-    <input type="text" name="password2" placeholder="Confirm password">
+    <input type="password" name="password" placeholder="Password">
+    <input type="password" name="password2" placeholder="Confirm password">
     <input type="submit" name="registerUser" value="Submit">
+    <p>Already have an account ? <a href="/login">Login here</a></p>
   </form>
 </body>
 </html>
