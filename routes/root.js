@@ -1,5 +1,3 @@
-var registerFunctions = require('../functions/registerFunctions');
-
 var express = require('express');
 var router = express.Router();
 var bcrypt = require('bcryptjs');
@@ -35,27 +33,20 @@ router.post('/register', forwardAuthenticated, function(req, res, next){
   if (password !== password2) {
     errors.push({ msg: 'Passwords do not match' });
   }
-console.log("before func");
-  if(registerFunctions.emailAlreadyTaken(email)){
-    console.log("after func");
-    errors.push({ msg: 'Email already registered' })
-  }
 
   if (password.length < 6) {
     errors.push({ msg: 'Password must be at least 6 characters' });
   }
 
-  console.log("after after func");
+  global.duplicateEmail = false;
 
-  if (errors.length > 0) {
-    res.render('register', {
-      errors,
-      nom,
-      prenom,
-      email
-    });
-  }else {
-    bcrypt.genSalt(10, (err, salt) => {
+  connection.query("SELECT COUNT(*) AS nbEmail FROM users WHERE email = " +mysql.escape(email), function(err, rest){
+    if (err) throw err;
+
+    if(rest[0].nbEmail > 0){
+      errors.push({ msg: "Email already registered" });
+    }else {
+      bcrypt.genSalt(10, (err, salt) => {
         bcrypt.hash(password, salt, (err, hash) => {
           if (err) throw err;
           connection.query("INSERT INTO users VALUES ('null','"+nom+"','"+prenom+"','"+email+"','"+hash +"',current_date,'free')", function(err, result){
@@ -63,8 +54,17 @@ console.log("before func");
             res.redirect('/login');
           })
         });
-    });
-  }
+      });
+    }
+    if (errors.length > 0) {
+      res.render('register', {
+        errors,
+        nom,
+        prenom,
+        email
+      });
+    }
+  })
 })
 
 router.get('/login', forwardAuthenticated, function(req, res, next) {
