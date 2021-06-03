@@ -3,10 +3,10 @@ var router = express.Router();
 var mysql = require('mysql');
 const { connect } = require('./root');
 var connection = mysql.createConnection({
-  host: 'mysql-medicine.alwaysdata.net',
-  user: 'medicine',
-  password: 'Boinet1906!',
-  database: 'medicine_app'
+  host: 'mysql-jabami.alwaysdata.net',
+  user: 'jabami',
+  password: 'medicine_dev6',
+  database: 'jabami_medecine'
 })
 
 connection.connect()
