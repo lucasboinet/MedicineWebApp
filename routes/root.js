@@ -5,10 +5,10 @@ var passport = require('passport');
 
 var mysql = require('mysql');
 var connection = mysql.createConnection({
-  host: 'mysql-medicine.alwaysdata.net',
-  user: 'medicine',
-  password: 'Boinet1906!',
-  database: 'medicine_app'
+  host: 'mysql-jabami.alwaysdata.net',
+  user: 'jabami',
+  password: 'medicine_dev6',
+  database: 'jabami_medecine'
 })
 
 const { ensureAuthenticated, forwardAuthenticated, ensureAuthenticatedAndAdmin } = require('../config/auth.js');
