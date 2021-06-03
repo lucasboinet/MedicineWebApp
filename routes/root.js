@@ -85,11 +85,7 @@ router.get('/logout', function(req, res, next){
 });
 
 router.get('/dashboard', ensureAuthenticated, function(req, res, next){
-  connection.query("SELECT nom, prenom, motif, updated_at FROM suivi s, patient p WHERE p.id=s.patient_id AND user_id='"+req.user.id+"' ORDER BY updated_at DESC LIMIT 5", function(err, rows, fields){
-    connection.query("SELECT distinct p.* FROM patient p, suivi s WHERE p.id=s.patient_id AND s.user_id='"+req.user.id+"'", function(error, results, champs) {
-      res.render('dashboard', {u: req.user, suivis: rows, patients: results});
-    })
-  })
+  res.render('dashboard', {u: {prenom: "lucas", nom: "boinet", plan: "free", subscribed_at: "2021-06-03"}, suivis: [{updated_at: "2021-06-03", nom: "hugo", prenom: "boinet", motif: "douleur au dos"}], patients: [{sexe: "H", nom: "boinet", prenom:"hugo", adresse: "13 rue anthoard"}]});
 })
 
 router.get('/api/suivi/income', ensureAuthenticatedAndAdmin, function(req, res, next) {
